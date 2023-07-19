@@ -8,18 +8,9 @@ import {
     Bounds
  } from '@react-three/drei'
  import Computer from "./Computer"
-import { useThree } from "@react-three/fiber"
-import { useWindowSize } from "react-use"
 
 export default function Experience({headlineText}: {headlineText: string})
 {
-    const {camera} = useThree()
-    const {width} = useWindowSize();
-
-    useEffect(() => {
-        camera
-    }, [width])
-
     return <>
         <Environment preset='city' />
 
