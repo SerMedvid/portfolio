@@ -2,11 +2,12 @@
 
 import {Canvas} from '@react-three/fiber';
 import Experience from './Experience';
+import { useWindowSize } from 'react-use';
 
 
-export default function CanvasContainer() {
+export default function CanvasContainer({headlineText}: {headlineText: string}) {
   return (
-    <div className='h-[90vh] md:h-[100svh]'>
+    <div className='h-[90vh] sm:h-[100svh]'>
       <Canvas
           className='touch-none'
           camera={ {
@@ -16,7 +17,7 @@ export default function CanvasContainer() {
               position: [ -3, 1.5, 4 ]
           } }
       >
-          <Experience />
+          <Experience headlineText={headlineText} />
       </Canvas>
     </div>
       

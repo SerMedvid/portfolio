@@ -3,6 +3,11 @@
     "About": {
       "name": "Сергій Медвідь",
       "position": "Девелопер <span>що знає як</span>",
-      "socialLinks": "Де буваю?"
+      "socialLinks": "Де буваю?",
+      "stack": "З чим я працюю?",
+      "experience": "Де я працював?"
+    },
+    "Home": {
+      "headline": "Comming soon..."
     }
 }

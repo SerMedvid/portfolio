@@ -1,0 +1,7 @@
+.item:hover .hoverLabel {
+    width: 100%;
+}
+
+.hoverLabel {
+    padding: inherit;
+}

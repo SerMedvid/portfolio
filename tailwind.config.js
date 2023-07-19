@@ -13,6 +13,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'gradient-page': 'linear-gradient(120deg, rgba(253,202,45,1) 52%, rgba(253,187,45,1) 100%)',
       },
+      boxShadow: {
+        'card-shadow': '0 6px 6px 0px rgba(0,0,0,0.6)'
+      }
     },
   },
   plugins: [],

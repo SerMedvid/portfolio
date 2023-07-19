@@ -9,3 +9,9 @@ export type SocialLink = {
     url: string,
     Icon: () => JSX.Element
 }
+
+export type WorkPosition = {
+    position: string,
+    company: string,
+    year: [string, string?]
+}

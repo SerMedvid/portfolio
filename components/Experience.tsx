@@ -1,17 +1,25 @@
+import {Suspense, useEffect} from "react"
 import { 
     Environment,
-    OrbitControls, 
-    useGLTF, 
     Float, 
     PresentationControls,
     ContactShadows,
-    Html
+    Text,
+    Bounds
  } from '@react-three/drei'
+ import Computer from "./Computer"
+import { useThree } from "@react-three/fiber"
+import { useWindowSize } from "react-use"
 
-export default function Experience()
+export default function Experience({headlineText}: {headlineText: string})
 {
-    const laptop = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
-    
+    const {camera} = useThree()
+    const {width} = useWindowSize();
+
+    useEffect(() => {
+        camera
+    }, [width])
+
     return <>
         <Environment preset='city' />
 
@@ -31,29 +39,30 @@ export default function Experience()
                 tension: 400
             }}
         >
-            <Float rotationIntensity={0.4}>
-                <rectAreaLight
-                    width={2.5}
-                    height={1.65}
-                    intensity={65}
-                    color={'#ff6900'}
-                    rotation={[0.1, Math.PI, 0]}
-                    position={[0, 0.55, -1.15]}
-                />
-                <primitive object={laptop.scene} position-y={-1.2} >
-                    <Html
-                        transform
-                        distanceFactor={1.17}
-                        position={[0, 1.56, -1.4]}
-                        rotation-x={-0.256}
-                    >
-                        <iframe 
-                            src='/about'
-                            className='w-[1024px] h-[670px] border-0 rounded-2xl bg-black'
-                        />
-                    </Html>
-                </primitive> 
-            </Float>
+            <Bounds fit observe damping={6} margin={1}>
+                <Float rotationIntensity={0.5}>
+                    <rectAreaLight
+                        width={2.5}
+                        height={1.65}
+                        intensity={65}
+                        color={'#ff6900'}
+                        rotation={[0.1, Math.PI, 0]}
+                        position={[0, 0.55, -1.15]}
+                    />
+                    <Suspense fallback="loading">
+                        <Computer />
+                    </Suspense>
+                
+                    <Text
+                        font='./bangers-v20-latin-regular.woff'
+                        fontSize={0.75}
+                        position={[2, 0.75, 0.25]}
+                        rotation-y={ -1.25}
+                        maxWidth={2}
+                        textAlign='center'
+                    >{headlineText}</Text>
+                </Float>
+            </Bounds>
         </PresentationControls>
 
         <ContactShadows 
@@ -62,6 +71,5 @@ export default function Experience()
             scale={5}
             blur={2.4}
         />
-        
     </>
 }
