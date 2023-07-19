@@ -1,4 +1,6 @@
-import {Suspense, useEffect} from "react"
+"use client"
+
+import {Suspense, lazy} from "react"
 import { 
     Environment,
     Float, 
@@ -7,7 +9,8 @@ import {
     Text,
     Bounds
  } from '@react-three/drei'
- import Computer from "./Computer"
+
+const  Computer = lazy(() => import("./Computer")) 
 
 export default function Experience({headlineText}: {headlineText: string})
 {
@@ -15,7 +18,7 @@ export default function Experience({headlineText}: {headlineText: string})
         <Environment preset='city' />
 
         <color args={['#241a1a']} attach={'background'} />
-        
+
         <PresentationControls
             global
             rotation={[0.13, 0.1, 0]}
@@ -28,7 +31,7 @@ export default function Experience({headlineText}: {headlineText: string})
             config={{
                 mass: 2,
                 tension: 400
-            }}
+            }} 
         >
             <Bounds fit observe damping={6} margin={1}>
                 <Float rotationIntensity={0.5}>
@@ -40,7 +43,7 @@ export default function Experience({headlineText}: {headlineText: string})
                         rotation={[0.1, Math.PI, 0]}
                         position={[0, 0.55, -1.15]}
                     />
-                    <Suspense fallback="loading">
+                    <Suspense fallback={null}>
                         <Computer />
                     </Suspense>
                 
