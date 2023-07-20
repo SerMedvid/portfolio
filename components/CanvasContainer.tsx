@@ -2,8 +2,6 @@
 
 import {Canvas} from '@react-three/fiber';
 import Experience from './Experience';
-import { useWindowSize } from 'react-use';
-
 
 export default function CanvasContainer({headlineText}: {headlineText: string}) {
   return (

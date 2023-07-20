@@ -1,14 +1,16 @@
-"use client"
+"use client";
 
 import {Suspense, lazy} from "react"
 import { 
     Environment,
     Float, 
-    PresentationControls,
     ContactShadows,
     Text,
-    Bounds
+    Bounds,
+    // PresentationControls
  } from '@react-three/drei'
+
+ import {PresentationControls} from "@/utils/PresentationControls"
 
 const  Computer = lazy(() => import("./Computer")) 
 
@@ -20,6 +22,7 @@ export default function Experience({headlineText}: {headlineText: string})
         <color args={['#241a1a']} attach={'background'} />
 
         <PresentationControls
+            enabled
             global
             rotation={[0.13, 0.1, 0]}
             polar={[-0.4, 0.2]}
@@ -30,10 +33,11 @@ export default function Experience({headlineText}: {headlineText: string})
             }}
             config={{
                 mass: 2,
-                tension: 400
+                tension: 400,
+                friction: 26
             }} 
         >
-            <Bounds fit observe damping={6} margin={1}>
+            <Bounds fit observe damping={6} margin={0.85}>
                 <Float rotationIntensity={0.5}>
                     <rectAreaLight
                         width={2.5}
