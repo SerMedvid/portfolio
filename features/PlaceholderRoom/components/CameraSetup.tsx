@@ -62,6 +62,9 @@ export default function CameraSetup() {
 					middle: 0,
 					right: 0,
 				}}
+				maxAzimuthAngle={Math.PI / 2}
+				minAzimuthAngle={0}
+				maxPolarAngle={Math.PI / 2}
 			/>
 		</>
 	);
