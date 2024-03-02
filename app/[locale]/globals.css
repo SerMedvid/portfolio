@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-main
-{
-    background: #241a1a;
-}
 
 /* width */
 ::-webkit-scrollbar {

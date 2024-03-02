@@ -1,0 +1,15 @@
+import { Color } from "three";
+
+export const DAY_LIGHT = new Color(
+	0.9803921568627451,
+	0.8901960784313725,
+	0.5372549019607843
+);
+
+export const NIGHT_LIGHT = new Color(
+	0.13725490196078433,
+	0.19215686274509805,
+	0.32941176470588235
+);
+
+export const DAYTIME_ANIMATION_DURATION = 0.5;
