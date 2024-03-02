@@ -9,5 +9,19 @@
     },
     "Home": {
       "headline": "Comming soon..."
+    },
+    "Links": {
+      "X": "Follow me on X",
+      "LinkedIn": "Let's connect In",
+      "Email": "Or just send email:)"
+    },
+    "Messages": {
+      "Intro": "Hey, friend no time no see, how are you?",
+      "First": "I'm not at home now, but you can poke around, I'm sure you'll find something to play with",
+      "Second": "If you want to reach me, just follow the link in contact book (it's right on the table)",
+      "Third": "See ya!!!"
+    },
+    "Monitor": {
+      "callout": "show me more"
     }
 }
