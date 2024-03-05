@@ -20,7 +20,7 @@ export default function useDaytime({ onChange }: Props = {}) {
 			},
 			{ fireImmediately: true }
 		);
-	}, []);
+	}, [onChange]);
 
 	return isDayRef;
 }

@@ -7,5 +7,10 @@ type Props = {
 export default function VideoMaterial({ src }: Props) {
 	const video = useVideoTexture(src);
 
-	return <meshStandardMaterial map={video} />;
+	return (
+		<meshBasicMaterial
+			map={video}
+			toneMapped={false}
+		/>
+	);
 }
