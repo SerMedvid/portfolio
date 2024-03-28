@@ -43,6 +43,8 @@ export default function Chair({ nodes, materials, ...rest }: Props) {
 				<mesh
 					geometry={nodes.Chair_1.geometry}
 					material={materials.Sofa}
+					receiveShadow
+					castShadow
 				/>
 				<mesh
 					geometry={nodes.Chair_2.geometry}
@@ -53,6 +55,7 @@ export default function Chair({ nodes, materials, ...rest }: Props) {
 			<mesh
 				geometry={nodes.ChairStand.geometry}
 				material={materials.Steel}
+				receiveShadow
 			/>
 		</group>
 	);
