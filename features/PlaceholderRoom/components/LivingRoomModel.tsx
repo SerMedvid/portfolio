@@ -17,6 +17,7 @@ import Monitor from "./Monitor";
 import Walls from "./Walls";
 import useStore from "../store/useStore";
 import PhotoFrame from "./PhotoFrame";
+import Chair from "./Chair";
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -46,6 +47,7 @@ type GLTFResult = GLTF & {
 		Vinyl005_2: THREE.Mesh;
 		Chair_1: THREE.Mesh;
 		Chair_2: THREE.Mesh;
+		ChairStand: THREE.Mesh;
 		Monitor: THREE.Mesh;
 		Display: THREE.Mesh;
 		DisplayActive: THREE.Mesh;
@@ -249,20 +251,11 @@ export function LivingRoomModel(props: JSX.IntrinsicElements["group"]) {
 				receiveShadow
 			/>
 
-			<group position={[0, 0, -1.327]}>
-				<mesh
-					geometry={nodes.Chair_1.geometry}
-					material={materials.Sofa}
-					castShadow
-					receiveShadow
-				/>
-				<mesh
-					geometry={nodes.Chair_2.geometry}
-					material={materials.Steel}
-					castShadow
-					receiveShadow
-				/>
-			</group>
+			<Chair
+				position={[0, 0, -1.327]}
+				nodes={nodes}
+				materials={materials}
+			/>
 
 			<Monitor
 				position={[0.018, 1.783, -3.073]}

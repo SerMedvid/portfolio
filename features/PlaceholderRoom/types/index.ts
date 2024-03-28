@@ -18,5 +18,13 @@ export enum FOCUS {
 	BOOKS = 3,
 	CENTER = 4,
 	PHOTO = 5,
-	MONITOR = 6
+	MONITOR = 6,
+}
+
+export enum KEYSCONTROL {
+	CENTER = `${FOCUS.CENTER}`,
+	RECORDS = `${FOCUS.RECORDS}`,
+	CONTACT = `${FOCUS.CONTACT}`,
+	PHOTO = `${FOCUS.PHOTO}`,
+	MONITOR = `${FOCUS.MONITOR}`,
 }

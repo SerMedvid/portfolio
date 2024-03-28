@@ -1,18 +1,32 @@
 "use client";
 
-import { CameraControls } from "@react-three/drei";
+import { CameraControls, useKeyboardControls } from "@react-three/drei";
 import { useDebounceEffect } from "ahooks";
 import { ElementRef, useEffect, useRef } from "react";
 import useStore from "../store/useStore";
 import { FOCUS_MAP } from "../data";
-import { FOCUS } from "../types";
+import { FOCUS, KEYSCONTROL } from "../types";
 
 export default function CameraSetup() {
 	const cameraControlsRef = useRef<ElementRef<typeof CameraControls>>(null);
 	const isFirstRun = useRef(true);
 	const focus = useStore((state) => state.focus);
+	const setFocus = useStore((state) => state.setFocus);
 	const isReady = useStore((state) => state.isReady);
 	const isCenter = focus === FOCUS.CENTER;
+
+	const [sub] = useKeyboardControls<KEYSCONTROL>();
+
+	useEffect(() => {
+		return sub(
+			(state) => Object.entries(state).find((pair) => !!pair[1])?.[0],
+			(pressed) => {
+				if (pressed) {
+					setFocus(+pressed as unknown as FOCUS);
+				}
+			}
+		);
+	}, [setFocus, sub]);
 
 	useEffect(() => {
 		const handleFocus = async () => {
